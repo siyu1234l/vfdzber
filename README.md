@@ -1,7 +1,37 @@
 # duckduckgo-api
 
+## Use vercel
+[https://duckduckgo-api.vercel.app/search?q=啊对对对是什么梗&max_results=3](https://duckduckgo-api.vercel.app/search?q=啊对对对是什么梗&max_results=3)
 
-use docker
+使用vercel部署的本项目,免费，但是vercel免费用量用完就无了
+
+可点下方按钮部署到自己的Vercel
+
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/binjie09/duckduckgo-api)
+
+<details>
+ <summary>设置 Vercel 的指导</summary>
+
+1. 前往 [vercel.com](https://vercel.com/)
+1. 点击 `Log in`
+   ![](https://files.catbox.moe/tct1wg.png)
+1. 点击 `Continue with GitHub` 通过 GitHub 进行登录
+   ![](https://files.catbox.moe/btd78j.jpeg)
+1. 登录 GitHub 并允许访问所有存储库（如果系统这样提示）
+1. Fork 这个仓库
+1. 返回到你的 [Vercel dashboard](https://vercel.com/dashboard)
+1. 选择 `Import Project`
+   ![](https://files.catbox.moe/qckos0.png)
+1. 选择 `Import Git Repository`
+   ![](https://files.catbox.moe/pqub9q.png)
+1. 选择 root 并将所有内容保持不变，并且只需添加名为 PAT_1 的环境变量（如图所示），其中将包含一个个人访问令牌（PAT），你可以在[这里](https://github.com/settings/tokens/new)轻松创建（保留默认，并且只需要命名下，名字随便）
+   ![](https://files.catbox.moe/0ez4g7.png)
+1. 点击 deploy，这就完成了，查看你的域名就可使用 API 了！
+
+</details>
+
+## Self host
+###use docker
 
 ```
 docker run -p 8000:8000 binjie09/duckduckgo-api
@@ -27,8 +57,10 @@ then get `http://localhost:8000/search?q=啊对对对是什么梗&max_results=3`
     }
 ]
 ```
-
+### self host
 ```bash
+git clone https://github.com/binjie09/duckduckgo-api.git
+cd duckduckgo-api
 python3 -m venv myenv && source myenv/bin/activate && pip install -r requirements.txt
 gunicorn -b 0.0.0.0:8000 app:app
 ```
